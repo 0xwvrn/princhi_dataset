@@ -169,7 +169,7 @@ def normalize_signal(signal):
     ) / std
 
 # =====================================================
-# ACCEL MAGNITUDE
+# MAGNITUDES
 # =====================================================
 
 def accel_magnitude(
@@ -190,10 +190,6 @@ def accel_magnitude(
         accZ**2
     )
 
-# =====================================================
-# GYRO MAGNITUDE
-# =====================================================
-
 def gyro_magnitude(
 
     gyroX,
@@ -213,7 +209,7 @@ def gyro_magnitude(
     )
 
 # =====================================================
-# FULL WINDOW PROCESSING
+# FULL PROCESSING
 # =====================================================
 
 def process_window(
@@ -226,7 +222,7 @@ def process_window(
     try:
 
         # =============================================
-        # FILTER SIGNALS
+        # FILTER
         # =============================================
 
         ecg_filtered = filter_ecg(
@@ -287,10 +283,6 @@ def process_window(
 
             window["gyroZ"]
         )
-
-        # =============================================
-        # RETURN
-        # =============================================
 
         return {
 
