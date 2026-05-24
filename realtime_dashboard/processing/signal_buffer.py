@@ -223,93 +223,9 @@ class SignalBuffer:
         }
 
     # =================================================
-    # CLEAR
-    # =================================================
-
-    def clear(self):
-
-        self.timestamps.clear()
-
-        self.ecg.clear()
-
-        self.ir.clear()
-
-        self.red.clear()
-
-        self.accX.clear()
-
-        self.accY.clear()
-
-        self.accZ.clear()
-
-        self.gyroX.clear()
-
-        self.gyroY.clear()
-
-        self.gyroZ.clear()
-
-        self.temp.clear()
-
-    # =================================================
     # STATUS
     # =================================================
 
     def current_size(self):
 
         return len(self.ecg)
-
-# =====================================================
-# TEST
-# =====================================================
-
-if __name__ == "__main__":
-
-    buffer = SignalBuffer()
-
-    fake_sample = {
-
-        "timestamp": 1,
-
-        "ecg": 2048,
-
-        "ir": 120000,
-
-        "red": 118000,
-
-        "accX": 0.1,
-
-        "accY": 0.2,
-
-        "accZ": 9.8,
-
-        "gyroX": 0.01,
-
-        "gyroY": 0.02,
-
-        "gyroZ": 0.01,
-
-        "temp": 33.5
-    }
-
-    for _ in range(2500):
-
-        buffer.add_sample(
-            fake_sample
-        )
-
-    print(
-        "buffer ready:",
-        buffer.is_ready()
-    )
-
-    print(
-        "samples:",
-        buffer.current_size()
-    )
-
-    window = buffer.get_window()
-
-    print(
-        "window keys:",
-        window.keys()
-    )
